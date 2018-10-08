@@ -1,0 +1,12 @@
+body {
+    font-size: 133%;
+    font-family: sans-serif;
+}
+h1 {
+    font-size: 150%;
+    text-align: center
+}
+section {
+    text-align: center;
+    line-height: 10%
+}
