@@ -12,9 +12,8 @@ aside {
     border-radius: 8px;
     float: right;
     font-style: italic;
-    margin-right: 5px;
-    padding: 8px;
-    width: 33%;        
+    width: 33%; 
+    padding: 10px;       
 }
 
 button.test-button {
@@ -42,8 +41,12 @@ button.test-button:hover {
     background-color: blue;
 }
 section {
-    background-color:gray;
+    background-color:rgb(168, 167, 167);
 }
 button.margin-button {
     margin: 25px;
+}
+div#margin-div {
+    display: inline-block;
+    border: 1px black;
 }
