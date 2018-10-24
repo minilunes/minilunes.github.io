@@ -1,11 +1,49 @@
 button {
     background-color: rgb(141, 85, 38);
     border: 2px rgb(0, 0, 0) thick;
-    color: rgba(255, 255, 255, 0.932);
-    text-align: center;    
+    color: rgba(255, 255, 255, 0.932);   
     font-size: 24px;
 }
 
-h1 {
-    text-align: center;
+
+aside {        
+    background-color: bisque;
+    border: black 1px solid;
+    border-radius: 8px;
+    float: right;
+    font-style: italic;
+    margin-right: 5px;
+    padding: 8px;
+    width: 33%;        
+}
+
+button.test-button {
+    padding: 25px;
+    border: 10px green double;    
+    border-radius: 22px;
+}
+
+.btn-padding {
+    padding: 25px;
+    border: 10px green double;    
+    border-radius: 22px;
+}
+
+.btn-padding:hover {
+    background-color: aqua;
+    border-color: white;
+}                
+      
+.btn-margin-padding:active {
+    color: red;
+}  
+ 
+button.test-button:hover {
+    background-color: blue;
+}
+section {
+    background-color:gray;
+}
+button.margin-button {
+    margin: 25px;
 }
