@@ -2,8 +2,8 @@ body {
     font-size: 125%;
     margin: auto;    
     max-width: 750px;
-    background-color: grey;
 }
+
 aside {
     border: 1px black solid;
     border-radius: 8px;
@@ -16,45 +16,88 @@ aside {
     margin-left: 8px;
     margin-right: 8px;
 }
+
 button.test-button {
     padding: 25px;
     border: 15px yellowgreen solid;
     border-radius: 35px;
 }
+
 button.test-button:hover {
     background-color: bisque;
     border-color: white;
 }
+
 button.margin-button {
     margin: 25px;
 }
+
 div#margin-div {
     border: 1px black solid;
     display: inline-block;
 }
+
+footer {
+    background-color: cadetblue;
+    text-align: center;
+}
+
 input#list-data {
     border: 10px yellowgreen solid;
     border-radius: 15px;
     font-size: 100%;
     padding: 5px;
 }
+
+header {
+    background-color: blue;
+    text-align: center;
+}
+
+header p {    
+    font-weight: bold;
+    font-size: 110%;
+}
+
 h1.foo {
     text-align: center;
 }
+
 h1#new-point {
     text-align: center;
 }
+
 img#list-button-utah {    
     height: 100px;
     float: right;
     margin-left: 8px;
     width: 100px;
 }
+
 main {
-    background-color: green;
+    background-color: grey;
     margin: auto;
     padding-left: 8px;
 }
+
+nav {        
+    background-color: aliceblue;
+    border: 1px green solid;
+    padding: 8px;
+    margin: -1px 0px 0px 0px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    padding: 8px;    
+}
+
 ul#my-list {    
     background-color: aquamarine;
     border: 10px yellowgreen solid;
@@ -62,6 +105,7 @@ ul#my-list {
     display: inline-block;
     padding-right: 8px;
 }
+
 .byline {
     font-style: italic;
     font-size: 80%;
