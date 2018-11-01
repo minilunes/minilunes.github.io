@@ -59,8 +59,22 @@ img#sony {
   font-family: 'Playfair Display', serif;
   font-size: 14px;
   font-style: italic;
+  line-height: 10px;
+  margin-left: 805px;
+  padding: 10px;
+  top: 80%;
+  width: 60%;
+  background-color: white;
+  color: black;
+  opacity: .75;
+}
+.caption2 {
+  display: inline;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
   line-height: 14px;
-  margin-left: 875px;
+  margin-left: 775px;
   padding: 10px;
   top: 80%;
   width: 60%;
