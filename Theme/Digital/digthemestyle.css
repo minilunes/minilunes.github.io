@@ -41,11 +41,18 @@ footer {
     font-size: 80%;
     color: grey;
 }
-img#canonae1p {
+img#stevesasson {
+    height: 250px;
+    float: right;
+    margin-left: 8px;
+    width: 200px;
+}
+img#sony {
     height: 200px;
     float: right;
     margin-left: 8px;
-    width: 300px;
+    width: 250px;
+    display: inline;
 }
 .caption {
   display: inline;

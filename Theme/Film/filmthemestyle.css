@@ -41,8 +41,14 @@ footer {
     font-size: 80%;
     color: grey;
 }
-img#canonae1p {
-    height: 200px;
+img#cameraobscura {
+    height: 250px;
+    float: right;
+    margin-left: 8px;
+    width: 400px;
+}
+img#earlycamera {
+    height: 250px;
     float: right;
     margin-left: 8px;
     width: 300px;
@@ -53,11 +59,25 @@ img#canonae1p {
   font-size: 14px;
   font-style: italic;
   line-height: 14px;
-  margin-left: 875px;
+  margin-left: 475px;
   padding: 10px;
   top: 80%;
   width: 60%;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
+  opacity: .75;
+}
+.caption2 {
+  display: inline;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 14px;
+  margin-left: 550px;
+  padding: 10px;
+  top: 80%;
+  width: 60%;
+  background-color: black;
+  color: white;
   opacity: .75;
 }
