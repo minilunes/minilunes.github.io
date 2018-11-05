@@ -4,4 +4,5 @@ window.onload = () => {
     for (let i = 0; i < 5; i++) {
         elfCode.appendToList(myList, i);
     }
-} 
+
+}
