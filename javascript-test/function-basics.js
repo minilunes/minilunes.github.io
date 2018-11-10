@@ -31,7 +31,7 @@ function functionParameters(value) {
     functionParametersParagraph.textContent = value;
 }       /*takes a single parameter and prints it out */
 
-function functionReturn () {
+function functionReturn() {
     return "Many functions return values.";
 }       /*returns a value function*/
 
