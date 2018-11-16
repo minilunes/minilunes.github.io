@@ -1,3 +1,9 @@
+function divider(title) {
+    console.log("=======================");
+    console.log(title);
+    console.log("=======================");
+};
+
 const person = {
     firstName: 'wesley',
     lastName: 'luna',
@@ -7,24 +13,36 @@ const person = {
 };
 
 const calculator = {
-    Operand01: '6',
-    Operand02: '4',
+    operand01: '6',
+    operand02: '4',
 };
 
-calculator.operand01 = person.firstName.length;
-calculator.operand02 = person.lastName.length;
+calculator.Operand01 = person.firstName.length;
+calculator.Operand02 = person.lastName.length;
 
 var Calculator = {
-    operand01: 6,
-    operand01: 4,
-    addOperands: function() {
-        return this.operand01 + this.operand02;
+    Operand01: 6,
+    Operand02: 4,
+    addOperands: function() {'use strict';
+        return this.Operand01 + this.Operand02;
+    },
+    subOperands: function() {'use strict';
+        return this.Operand01 - this.Operand02;
+    },
+    multOperands: function() {'use strict';
+        return this.Operand01 * this.Operand02;
     }
-}
+};
 
+divider('Person');
 console.log(person.firstName);
 console.log(person.lastName);
 console.log(person.getName());
-console.log(calculator.operand01);
-console.log(calculator.operand02);
-console.log(Calculator.addOperands());
+
+divider('Calculator');
+console.log('operand01 =', calculator.operand01);
+console.log('operand02 =', calculator.operand02);
+
+console.log('Add: ', Calculator.addOperands());
+console.log('Subtract: ', Calculator.subOperands());
+console.log('Multiply: ', Calculator.multOperands());
