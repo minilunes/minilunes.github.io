@@ -38,7 +38,7 @@ div#margin-div {
 }
 
 footer {
-    background-color: cadetblue;
+    background-color: rgb(176, 255, 248);
     text-align: center;
 }
 
@@ -50,7 +50,7 @@ input#list-data {
 }
 
 header {
-    background-color: blue;
+    background-color: rgb(176, 255, 248);
     text-align: center;
 }
 
