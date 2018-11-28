@@ -1,13 +1,16 @@
 body {
     font-size: 133%;
     font-family: sans-serif;
-    background-color: antiquewhite;
+    background-color: rgb(41, 40, 40);
+    color: antiquewhite;
     max-width: 1000px;
     margin: auto;
     display: block;
 }
 header {
     font-size: 200%;
+    background-color: rgb(41, 40, 40);
+    color: antiquewhite;
     font-family: sans-serif;
     text-align: center;
     padding: 8px;
@@ -21,9 +24,9 @@ h1 {
     font-family: sans-serif;
     text-align: center;
 }
-nav {        
-    background-color: antiquewhite;
-    border: 3px black solid;
+nav {
+    background-color: rgb(41, 40, 40);
+    border: 3px antiquewhite solid;
     padding: 8px;
     margin: -1px 0px 0px 0px;
     text-align: center;
@@ -35,7 +38,7 @@ nav ul {
 }
 nav li {
     display: inline;
-    padding: 8px;    
+    padding: 8px;   
 }
 .byline {
     font-style: italic;
@@ -64,8 +67,8 @@ footer {
   padding: 10px;
   top: 80%;
   width: 60%;
-  background-color: white;
-  color: black;
+  background-color: rgb(41, 40, 40);;
+  color: antiquewhite;
   opacity: .75;
 }
 #ae1 {

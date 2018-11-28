@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="themestyle.css">
+    <link href="themestylealt.css" rel="alternate stylesheet" type="text/css" id="basic">
+    <link href="themestyle.css" rel="stylesheet" type="text/css" id="default">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <script src="index.js"></script>
     <title>Cameras</title>
 </head>
 
@@ -41,7 +44,15 @@
 
         <hr>
 
-        <section>
+        <section id="buttons">
+            <h1>Apperanace Change</h1>
+            <button id="appearanceAction" type="button">Darkroom Mode</button>
+            <button id="appearanceAction2" type="button">Lightroom Mode</button>
+        </section>
+
+        <hr>
+
+        <section id="images">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Cameras-set.jpg/551px-Cameras-set.jpg" alt="Evolution of Cameras">
             <img src="../images/lens-3046269_960_720.jpg" alt="Camera Lens">
         </section>
