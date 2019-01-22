@@ -8,11 +8,12 @@
     padding: 30px;
 }
 
-#bar {
+#colorBar {
     width: 600px;
     height: 100px;
     border: 2px solid black;
     margin-top: 7px;
+    background-color: white;
 }
 
 #red {

@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Color Picker</title>
     <link rel="stylesheet" href="exercise5.css">
-    <script src="exercise5.js"></script>
 </head>
 <body>
 
@@ -16,27 +15,29 @@
 
         <div id="red">
             <p><b>Red:</b>
-                <input type="text" id="input" maxlength="3" size="4" value="0" align="right">
+                <input type="text" id="inputred" maxlength="3" size="4" value="0" align="right">
             </p>
         </div>
 
         <div id="green">
             <p><b>Green:</b>
-                <input type="text" id="input" maxlength="3" size="4" value="0" align="right">
+                <input type="text" id="inputgreen" maxlength="3" size="4" value="0" align="right">
             </p>
         </div>
 
         <div id="blue">
             <p><b>Blue:</b>
-                <input type="text" id="input" maxlength="3" size="4" value="0" align="right">
+                <input type="text" id="inputblue" maxlength="3" size="4" value="0" align="right">
             </p>
         </div>
     
-    <button id="reveal">Show me the color!</button>
+    <button id="show">Show me the color!</button>
     <button id="clear">Clear all</button>
 
-        <div id="bar"></div>
+    <div id="colorBar"></div>
+
     </div>
 
+    <script src="exercise5.js"></script>
 </body>
 </html>
