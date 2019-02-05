@@ -5,21 +5,21 @@ showButton.addEventListener("click", showColorHandler, false);
 clearButton.addEventListener("click", clearColorHandler, false);
 
 function showColorHandler(e) {
-	var r = parseInt(input.value);
-	var g = parseInt(input.value);
-	var b = parseInt(input.value);
+	var r = parseInt(0);
+	var g = parseInt(50);
+	var b = parseInt(0);
 
 	colorBar.style.backgroundColor  = "rgb(" + r + "," + g + "," + b + ")";			
-}
+};
 
 
 function clearColorHandler(e) {
 	clear();
-}
+};
 
 function clear() {
     colorBar.style.backgroundColor= "White";
-}
+};
 
 // function validate(r) {
 //     if ( r >=256 || r < 1) {
