@@ -26,11 +26,16 @@ function init(){
 }
 
 function saveInfo(){
-	var city=document.getElementById("city").value;
+	var donut=document.getElementById("donut").value;
 	var comments=document.getElementById("comments").value;
+	var quantity=document.getElementById("quantity").value;
+	var requests=document.getElementById("requests").value;
 	
-	localStorage.setItem("cityName",city);
+	localStorage.setItem("donutName",donut);
 	localStorage.setItem("userComments",comments);
+	localStorage.setItem("donutQuantity",quantity);
+	localStorage.setItem("specialRequests",requests);
+
 	
 	
 	display();
@@ -39,13 +44,15 @@ function saveInfo(){
 
 function display(){
 	var rightBox=document.getElementById("useroutput");
-	var theCity=localStorage.getItem("cityName");
+	var thedonut=localStorage.getItem("donutName");
 	var theComments=localStorage.getItem("userComments");
+	var theQuantity=localStorage.getItem("donutQuantity");
+	var theRequests=localStorage.getItem("specialRequests");
 	
 	if(theComments==undefined){
 		document.getElementById("useroutput").innerHTML="";
 	}
-	else{ document.getElementById("useroutput").innerHTML="OUTPUT  <hr /><br /><br />The City: "+theCity+"<br /><br />  The Weather: "+theComments;
+	else{ document.getElementById("useroutput").innerHTML="OUTPUT  <hr /><br /><br />Donut: "+thedonut+"<br /><br />  Toppings: "+theComments+"<br /><br />  Quantity: "+theQuantity+"<br /><br />  Special Requests: "+theRequests;
 	}
 	
 }
@@ -65,9 +72,13 @@ function display(){
     <br /><br />
     <form>
     
-    <div>City: <br /><input type="input" id="city" size="20"></div>
+    <div>Donut (name or type): <br /><input type="input" id="donut" size="20"></div>
     <br />
-    <div>Weather:<br /> <textarea id="comments" rows="10"></textarea></div>
+    <div>Toppings:<br /> <textarea id="comments" rows="10"></textarea></div>
+	<br />
+	<div>Quantity:<br /> <textarea id="quantity" rows="1"></textarea></div>
+	<br />
+	<div>Special Request(s):<br /> <textarea id="requests" rows="5"></textarea></div>
     <br />
      <div><input type="button" id="button" value="Save"></div>
     
