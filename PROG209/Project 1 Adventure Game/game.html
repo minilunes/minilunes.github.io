@@ -1,21 +1,356 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project Game</title>
-    <script src="game.js"></script>
-    <link rel="stylesheet" href="game.css">
-</head>
-
+<!doctype html>
 <body>
-    
-<img src="" width="1000" height="850">
+<title>Adventure Game: Prison Mystery</title>
+<link rel="stylesheet" href="game.css">
+
+<h1>Prison Mystery</h1>
+<img src="" width="700" height="568">
 <p id="output"></p>
+<div id="playerInputs">
 <input id="input" type="text" placeholder="Enter your action...">
-<button id="enter">Enter</button>
+<button id="button">Enter</button>
+</div>
 
+<script>
 
+//Map of the prison
+    let map = [];
+    
+    map[0] = "There is a mysterious looking guard pacing back and forth. He has some sort of key around his belt loop but won't give it up, not without financial compensation.";
+    map[1] = "Uh oh! There is a prisoner staring at you as if you're a threat. Better do something before he gets too agressive!";
+    map[2] = "Finally, the records room. Inside is all the information you need on the case. Good job!";
+    map[3] = "Another jail cell. Nobody is in this one and nothing out of the ordinary. It's awfully cold.";
+    map[4] = "You are deeper in the hallway. You hear a commotion in front of you and two ordinary rooms to your left and right.";
+    map[5] = "You are in the Warden's office. It's warm and cozy but nobody is here. Around you is a room with a bunch of shelves and a lonely baton leaning against the desk.";
+    map[6] = "You find yourself in a room with a locked jailcell. Inside is a man who is clearly not conscious. You notice a backpack in the corner. I wonder what's in it?";
+    map[7] = "You are finally inside that mysterious prison everyone has been talking about. In front of you is a hallway with many rooms. To your left is a jailcell. To your right, you see a bunch of guards standing around staring at you.";
+    map[8] = "Some guards stare at you up and down. They don't agree with you being there but comply in accordance of the Warden. They hand you a cell key and a pair of handcuffs, just in case.";
+
+//Start point
+    let mapLocation = 7;
+    
+//Images per room that syncs with the map array
+    let images = [];
+    images[0] = "singleguard.jpg";
+    images[1] = "prisoner.jpg";
+    images[2] = "records.jpg";
+    images[3] = "emptycell.jpg";
+    images[4] = "hallway.jpg";
+    images[5] = "office.jpg"; 
+    images[6] = "jailcell.jpg";
+    images[7] = "entrance.jpg";
+    images[8] = "guards.jpg";
+    
+//Display messages if you try to go out of bounds
+    const blockedPathMessages = [];
+    blockedPathMessages[0] = "The only way out of here is the way I came in.";
+    blockedPathMessages[1] = "The only way out of here is the way I came in.";
+    blockedPathMessages[2] = "The only way out of here is the way I came in.";
+    blockedPathMessages[3] = "The only way out of here is the way I came in.";
+    blockedPathMessages[4] = "";
+    blockedPathMessages[5] = "The only way out of here is the way I came in.";
+    blockedPathMessages[6] = "The only way out of here is the way I came in.";
+    blockedPathMessages[7] = "The only way out of here is the way I came in.";
+    blockedPathMessages[8] = "The only way out of here is the way I came in.";
+    
+//Items and locations
+    var items = ["records room key", "baton", "money", "handcuffs", "cell key"];
+    var itemLocations = [0, 5, 6, 8, 8];
+    
+//Backpack
+    var backpack = [];
+
+    var playersInput = "";
+
+    var gameMessage = "";
+    
+//Allowed inputs
+    var actionsIKnow = ["north", "east", "south", "west", "take", "use", "drop"];
+    var action = "";
+    
+//Items the game recognizes
+    var itemsIKnow = ["records room key", "baton", "money", "handcuffs", "cell key"];
+    var item = "";
+
+    var image = document.querySelector("img");
+    
+    var output = document.querySelector("#output");
+    var input = document.querySelector("#input");
+    
+//The button
+    var button = document.querySelector("button");
+    button.style.cursor = "pointer";
+    button.addEventListener("click", clickHandler, false);
+    
+//Display the player's location
+    render();
+    
+    function clickHandler()
+    {
+      playGame();
+    }
+    
+    function playGame()
+    {
+       playersInput = input.value;
+       playersInput = playersInput.toLowerCase();
+    
+       gameMessage = "";
+       action = "";
+    
+       for(i = 0; i < actionsIKnow.length; i++)
+    
+    {
+      if(playersInput.indexOf(actionsIKnow[i]) !== -1)
+      {
+        action = actionsIKnow[i];
+        console.log("player's action: " + action);
+        break;
+      }
+    }
+    
+//Figure out the item the player wants
+    for(i = 0; i < itemsIKnow.length; i++)
+    {
+      if(playersInput.indexOf(itemsIKnow[i]) !== -1)
+      {
+        item = itemsIKnow[i];
+        console.log("player's item: " + item);
+      }
+    }
+    
+    switch(action)
+    {
+      case "north":
+        if(mapLocation >= 3)
+        {
+          mapLocation -= 3;
+        }
+        else
+        {
+          gameMessage = blockedPathMessages[mapLocation];
+        }
+        break;
+    
+      case "east":
+        if(mapLocation % 3 != 2)
+        {
+          mapLocation += 1;
+        }
+        else
+        {
+          gameMessage = blockedPathMessages[mapLocation];
+        }
+        break;
+    
+      case "south":
+        if(mapLocation < 6)
+        {
+          mapLocation += 3;
+        }
+        else
+    
+          {
+            gameMessage = blockedPathMessages[mapLocation];
+          }
+          break;
+    
+        case "west":
+          if(mapLocation % 3 != 0)
+          {
+            mapLocation -= 1;
+          }
+          else
+          {
+            gameMessage = blockedPathMessages[mapLocation];
+          }
+          break;
+    
+        case "take":
+          takeItem()
+          break;
+    
+        case "drop":
+          dropItem();
+          break;
+    
+        case "use":
+          useItem();
+          break;
+        default:
+          gameMessage = "I don't understand that.";
+      }
+    
+//Render the entire shabang
+    render();
+    }
+//Coding the take command
+    function takeItem()
+{
+   var itemIndexNumber = items.indexOf(item);
+
+   if(itemIndexNumber !== -1
+   && itemLocations[itemIndexNumber] === mapLocation)
+   {
+     gameMessage = "You take the " + item + ".";
+
+      backpack.push(item);
+
+      items.splice(itemIndexNumber, 1);
+      itemLocations.splice(itemIndexNumber, 1);
+   }
+   else
+   {
+    gameMessage = "You can't do that.";
+   }
+}   
+
+//Coding the drop command
+    function dropItem()
+    {
+       if(backpack.length !== 0)
+       {
+         var backpackIndexNumber = backpack.indexOf(item);
+    
+         if(backpackIndexNumber !== -1)
+         {
+    
+          gameMessage = "You drop the " + item + ".";
+    
+          items.push(backpack[backpackIndexNumber]);
+          itemLocations.push(mapLocation);
+    
+          backpack.splice(backpackIndexNumber, 1);
+         }
+         else
+         {
+           gameMessage = "You can't do that.";
+         }
+       }
+       else
+       {
+         gameMessage = "You're not carrying anything.";
+       }
+    }
+    
+//Coding the use command
+    function useItem()
+    {
+       var backpackIndexNumber = backpack.indexOf(item);
+    
+       if(backpackIndexNumber === -1)
+       {
+         gameMessage = "You're not carrying that item.";
+       }
+    
+       if(backpack.length === 0)
+       {
+         gameMessage += " Your backpack is empty";
+       }
+    
+       if(backpackIndexNumber !== -1)
+       {
+    
+         switch(item)
+         {
+           case "cell key":
+        if (mapLocation === 6)
+        {
+             gameMessage = "The Cell Key opens the door.";
+             backpack.splice(backpackIndexNumber, 1);
+        }
+        else
+        {
+        gameMessage
+        = "A key. Bet I could use this somewhere!";
+        }
+             break;
+    
+           case "baton":
+             if(mapLocation === 1)
+             {
+               gameMessage
+                 = "You swing your baton and knock the prisoner out!";
+            backpack.splice(backpackIndexNumber, 3);
+             }
+             else
+             {
+               gameMessage
+                 = "You twirl your baton, very cool.";
+             }
+             break;
+    
+    
+           case "handcuffs":
+             if(mapLocation === 1)
+             {
+               gameMessage
+                 = "You take your handcuffs out and subdue the prisoner.";
+                backpack.splice(backpackIndexNumber, 4);
+             }
+             else
+             {
+               gameMessage
+                 = "Better not accidentally handcuff myself.";
+             }
+             break;
+    
+           case "money":
+             if(mapLocation === 0)
+             {
+               gameMessage = "You exchange your money for the key around the guards belt.";
+    
+               backpack.splice(backpackIndexNumber, 2);
+             }
+             else
+             {
+               gameMessage
+                 = "Wonder what I need money for.";
+             }
+             break;
+    
+        case "records room key":
+        if(mapLocation === 2)
+        {
+         gameMessage = "You insert the key into the door and you hear the door unlock.";
+        
+         backpack.splice(backpackIndexNumber, 5);
+        }
+        else
+        {
+          gameMessage
+           = "Another key. How many keys do these people need?";
+        }
+        break;
+          }
+       }
+    }
+    
+    function render()
+    {
+       output.innerHTML = map[mapLocation];
+       image.src = "images/" + images[mapLocation];
+    
+//Basically loops through the Items array and determines if one is in the mapLocation
+       for(var i = 0; i < items.length; i++)
+       {
+         if(mapLocation === itemLocations[i])
+         {
+           output.innerHTML
+           += "<br>You see a <strong>"
+           + items[i]
+           + "</strong> here.";
+         }
+       }
+    
+       output.innerHTML += "<br><em>" + gameMessage + "</em>";
+    
+       if(backpack.length !== 0)
+       {
+         output.innerHTML += "<br>You are carrying: " + backpack.join(", ");
+       }
+    }
+</script>
+    
 </body>
 </html>
