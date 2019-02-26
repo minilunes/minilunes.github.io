@@ -1,0 +1,24 @@
+body {
+    background-image: url("images/background.jpg");
+    background-size: 1200px 1600px;
+    background-repeat: no-repeat;
+    margin-left: 240px;
+    margin-top: -22px;
+}
+
+h1 {
+    color: antiquewhite;
+    font-size: 72px;
+    text-indent: 110px;
+}
+
+#output {
+    color: white;
+    font-size: 110%;
+    width: 716px;
+}
+
+#playerInputs {
+    margin-left: 240px;
+    margin-top: -9px;
+}
