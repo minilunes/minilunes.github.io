@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drawing Signs</title>
+
+</head>
+<body>
+
+        <canvas id="myCanvas" width="578" height="1000"></canvas>
+
+<script>
+        
+var canvas = document.querySelector("#myCanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.save();    
+ctx.lineWidth = 32;     
+ctx.lineJoin = "round";    // Round corners
+ctx.strokeStyle = "DodgerBlue";
+ctx.fillStyle = "DodgerBlue";
+ 
+
+// Create the rectangle
+ctx.beginPath();
+ctx.moveTo(200, 100);
+ctx.lineTo(450, 100);
+ctx.lineTo(450, 450);
+ctx.lineTo(200, 450);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();   
+
+// Create the thin white line inside the sign
+ctx.strokeStyle = "white";
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.save();         
+ctx.lineWidth = 32;        // Line width        
+ctx.lineJoin = "miter";    // Sharp corners
+ctx.strokeStyle = "white";
+ctx.fillStyle = "white";
+ 
+
+//Create the arrow inside the one way sign
+ctx.beginPath();
+ctx.moveTo(320, 150);
+ctx.lineTo(375, 200);
+ctx.lineTo(350, 200);
+ctx.lineTo(350, 420);
+ctx.lineTo(290, 420);
+ctx.lineTo(290, 200);
+ctx.lineTo(270, 200);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();   
+
+//Create the "one way" text
+ctx.fillStyle  = "DodgerBlue";
+ctx.font = "70px Arial";
+ctx.fillText( "ONE WAY", 160, 550);
+ctx.restore();
+
+</script>
+    
+</body>
+</html>

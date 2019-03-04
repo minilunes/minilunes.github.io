@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drawing Signs</title>
+
+</head>
+<body>
+
+    <canvas id="myCanvas" width="578" height="500"></canvas>
+
+<script>
+        
+var canvas = document.querySelector("#myCanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.save();
+ctx.strokeStyle = "red";
+ctx.fillStyle = "red";
+
+// Create the circle
+ctx.beginPath();
+ctx.arc(275, 275, 200, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fill();
+ctx.stroke();   
+
+// Create the rectangle between DO NOT and ENTER
+ctx.fillStyle = "white";
+ctx.save();     // Save the canvas state
+ctx.fillRect(110, 260, 325, 50);     // Red square
+
+// Create the text inside the sign
+ctx.fillStyle  = "white";
+ctx.font = "bold 80px Arial";
+ctx.fillText( "DO NOT" ,120, 240);
+ctx.fillText( "ENTER", 135, 390)
+ctx.restore();      // restore previous display state
+
+</script>
+    
+</body>
+</html>
