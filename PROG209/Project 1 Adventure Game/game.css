@@ -22,3 +22,49 @@ h1 {
     margin-left: 240px;
     margin-top: -9px;
 }
+
+#introScreen img {
+    position: absolute;
+}
+
+#description {
+    text-align: center;
+    color: black;
+    position: absolute;
+    margin-top: 600px;
+    margin-left: -80px;
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#description2 {
+    text-align: center;
+    color: black;
+    position: absolute;
+    margin-top: 650px;
+    margin-left: -80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#gameTitle {
+    font-size: 32px;
+    line-height: 2em;
+    text-align: center;
+    color: antiquewhite;
+    position: absolute;
+    margin: auto;
+    padding: 30px;
+    margin-left: 280px;
+    margin-top: 150px;
+}
+
+#gameScreen {
+    display: none;
+}
+
+#start {
+    position: relative;
+    margin-top: 710px;
+    margin-left: 320px;
+}

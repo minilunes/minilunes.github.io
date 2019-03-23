@@ -3,13 +3,30 @@
 <title>Adventure Game: Prison Mystery</title>
 <link href="game.css" type="text/css" rel="stylesheet" />
 
-<h1>Prison Mystery</h1>
+<section id="introScreen">
+    <h1>&nbsp &nbsp How to play:</h1>
+  <span id="gameTitle">The<br>Great<br>Escape</span>
+  <p id="description">There's been a murder in the local prison. The culprit has since gone unnoticed and you've been hired
+  to find who did this<br>. Navigate your way through the prison and find the murderer!</p>
+  <p id="description2">To move, type "north", "south", "east", or "west" to move about the space. type "take"
+   to take the item in the room. "drop"<br> to drop your item and "use" to an item in your inventory.
+  <br>If you get stuck, type "help" for a hint.</p>
+      <div>
+        <button id="start">Start!</button>
+      </div>
+</section>
+
+<section id="gameScreen">
+    <h1>Prison Mystery</h1>
 <img src="" width="700" height="568">
 <p id="output"></p>
-<div id="playerInputs">
 <input id="input" type="text" placeholder="Enter your action...">
 <button id="button">Enter</button>
+<audio id ="footsteps" preload="auto">
+    <source src="footsteps.mp3" type="audio/mpeg">
+</audio>
 </div>
+</section>
 
 <script>
 
@@ -52,6 +69,18 @@
     blockedPathMessages[6] = "The only way out of here is the way I came in.";
     blockedPathMessages[7] = "The only way out of here is the way I came in.";
     blockedPathMessages[8] = "The only way out of here is the way I came in.";
+
+  //Help messages
+    const helpMessages = [];
+    helpMessages[0] = "The key i've been looking for! Let's head to the records room.";
+    helpMessages[1] = "If I had a weapon and some handcuffs, I could help.";
+    helpMessages[2] = "";
+    helpMessages[3] = "";
+    helpMessages[4] = "";
+    helpMessages[5] = "This baton will be helpful in case I find myself in a dangerous sitatuion.";
+    helpMessages[6] = "If I had a pair of keys, I could probably open this door.";
+    helpMessages[7] = "";
+    helpMessages[8] = "These keys and handcuffs will be useful later.";
     
 //Items and locations
     var items = ["records room key", "baton", "money", "handcuffs", "cell key"];
@@ -65,7 +94,7 @@
     var gameMessage = "";
     
 //Allowed inputs
-    var actionsIKnow = ["north", "east", "south", "west", "take", "use", "drop"];
+    var actionsIKnow = ["north", "east", "south", "west", "take", "use", "drop", "help"];
     var action = "";
     
 //Items the game recognizes
@@ -78,13 +107,26 @@
     var input = document.querySelector("#input");
     
 //The button
-    var button = document.querySelector("button");
-    button.style.cursor = "pointer";
-    button.addEventListener("click", clickHandler, false);
+    var start = document.querySelector("#start"),
+        button = document.querySelector("#button");
+
+
     
 //Display the player's location
     render();
-    
+
+    button.addEventListener("click", clickHandler, false);
+    start.addEventListener("click", startGameHandler, false);
+
+
+"use strict;"
+function startGameHandler()
+{
+	// Hide the intro screen, show the game screen
+	introScreen.style.display = "none";
+  gameScreen.style.display = "block";
+}
+
     function clickHandler()
     {
       playGame();
@@ -108,6 +150,9 @@
         break;
       }
     }
+
+
+
     
 //Figure out the item the player wants
     for(i = 0; i < itemsIKnow.length; i++)
@@ -125,6 +170,7 @@
         if(mapLocation >= 3)
         {
           mapLocation -= 3;
+          document.getElementById('footsteps').play();
         }
         else
         {
@@ -136,6 +182,7 @@
         if(mapLocation % 3 != 2)
         {
           mapLocation += 1;
+          document.getElementById('footsteps').play();
         }
         else
         {
@@ -147,6 +194,7 @@
         if(mapLocation < 6)
         {
           mapLocation += 3;
+          document.getElementById('footsteps').play();
         }
         else
     
@@ -159,6 +207,7 @@
           if(mapLocation % 3 != 0)
           {
             mapLocation -= 1;
+            document.getElementById('footsteps').play();
           }
           else
           {
@@ -177,6 +226,17 @@
         case "use":
           useItem();
           break;
+
+        case "help":
+        if(helpMessages[mapLocation] !== "")
+        {
+          gameMessage = helpMessages[mapLocation] + " ";
+        } 
+        else 
+        {
+        gameMessage += "Try any of these words: "
+        gameMessage += "north, east, south, west, take, drop"};
+        break;
         default:
           gameMessage = "I don't understand that.";
       }
