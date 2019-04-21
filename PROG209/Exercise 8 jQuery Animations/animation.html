@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Animations</title>
+    <link href="animation.css" rel="stylesheet" type="text/css" id="default">
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+<img id="tree" src="tree.png" alt="" width="300" height="450"
+  style="position: relative; left: 10px;">
+
+<div id="clickme">click me to fade!</div>
+
+<img id="tree2" src="tree.png" width="300" height="450"
+  style="position: relative; left: 10px; display: none;">
+
+<div id="clickme2">click me to appear!</div>
+
+<img id="tree3" src="tree.png" width="300" height="450"
+  style="position: relative; left: 10px;">
+
+<div id="clickme3">click me twice to toggle!</div>
+
+  <script>
+  $( "#clickme" ).click(function() {
+    $( "#tree" ).animate({
+      opacity: 0.25,
+      left: "+=50",
+      height: "toggle"
+    }, 5000, function() {
+    });
+  });
+
+  $( "#clickme2" ).click(function() {
+  $( "#tree2" ).show( "slow", function() {
+    // Animation complete.
+  });
+});
+
+$( "#clickme3" ).click(function() {
+  $( "#tree3" ).toggle( "slow", function() {
+    // Animation complete.
+  });
+});
+</script>
+
+</body>
+</html>

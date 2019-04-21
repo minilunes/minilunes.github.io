@@ -414,3 +414,78 @@ function startGameHandler()
     
 </body>
 </html>
+
+
+
+
+
+body {
+    background-image: url("images/background.jpg");
+    background-size: 1200px 1600px;
+    background-repeat: no-repeat;
+    margin-left: 240px;
+    margin-top: -22px;
+}
+
+h1 {
+    color: antiquewhite;
+    font-size: 72px;
+    text-indent: 110px;
+}
+
+#output {
+    color: white;
+    font-size: 110%;
+    width: 716px;
+}
+
+#playerInputs {
+    margin-left: 240px;
+    margin-top: -9px;
+}
+
+#introScreen img {
+    position: absolute;
+}
+
+#description {
+    text-align: center;
+    color: black;
+    position: absolute;
+    margin-top: 600px;
+    margin-left: -80px;
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#description2 {
+    text-align: center;
+    color: black;
+    position: absolute;
+    margin-top: 650px;
+    margin-left: -80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#gameTitle {
+    font-size: 32px;
+    line-height: 2em;
+    text-align: center;
+    color: antiquewhite;
+    position: absolute;
+    margin: auto;
+    padding: 30px;
+    margin-left: 280px;
+    margin-top: 150px;
+}
+
+#gameScreen {
+    display: none;
+}
+
+#start {
+    position: relative;
+    margin-top: 710px;
+    margin-left: 320px;
+}
